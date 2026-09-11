@@ -1,1 +1,0 @@
-current->next->prev = temp;
