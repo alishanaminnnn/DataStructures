@@ -47,6 +47,19 @@ public:
         }
         lenght++;
     }
+    ~LinkList()
+    {
+        current = head;
+
+        while (current != nullptr)
+        {
+            Node *temp = current;
+            current = current->next;
+            delete temp;
+        }
+
+        head = nullptr;
+    }
     void start()
     {
         current = head;
@@ -77,10 +90,10 @@ public:
         if (position == 1)
         {
             current->prev = temp;
-            temp->next=current;
-            head=temp;
+            temp->next = current;
+            head = temp;
         }
-        else if (position == lenght+1)
+        else if (position == lenght + 1)
         {
             tail();
             current->next = temp;
@@ -92,7 +105,7 @@ public:
             {
                 current = current->next;
             }
-            temp->prev=current;
+            temp->prev = current;
             temp->next = current->next;
             current->next->prev = temp;
             current->next = temp;
@@ -136,7 +149,7 @@ int main()
     l1.createLinkList(7);
     l1.createLinkList(9);
     l1.remove(2);
-    l1.insert(10,2);
+    l1.insert(10, 2);
     l1.display();
     return 0;
 }
