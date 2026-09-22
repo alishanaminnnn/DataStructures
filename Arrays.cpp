@@ -7,7 +7,7 @@ private:
     int* current;
     int capacity;
     int length;
-
+    
 public:
     ArrayList(int size) {
         arr = new int[size];
