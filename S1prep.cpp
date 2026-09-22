@@ -91,6 +91,7 @@ public:
         {
             cout << *(arr + i) << " ";
         }
+        cout<<endl;
     }
     int getLenght()
     {
@@ -107,7 +108,45 @@ public:
             *(arr+lenght-i-1)=temp;
         }
     }
+
+    int maximum(){
+        start();
+        int max;
+        max=*arr;
+        for (int i = 0; i < lenght; i++)
+        {
+            if (max<*(curr+i))
+            {
+                max=*(curr+i);
+            }
+           
+        }
+        return max; 
+    }
+
+    void contentation(){
+        int *cnt;
+        cnt=new int[2*lenght];
+        int *curr1=cnt;
+        start();
+        for (int i = 0; i < 2; i++)
+        {
+            for (int j = 0; j < lenght ; j++)
+            {
+                *(curr1+j)=*(curr+j);
+            }
+            curr1=curr1+lenght;
+        }
+        cout<<"Contentation: ";
+        for (int i = 0; i < 2*lenght; i++)
+        {
+            cout<<*(cnt+i)<<" ";
+        }
+        
+    }
 };
+
+
 
 int main()
 {
@@ -125,6 +164,10 @@ int main()
     A1.display();
     A1.reverse();
     A1.display();
+    cout<<"Maximum: "<<A1.maximum();
+    A1.contentation();
+
+
 
 
     return 0;
