@@ -18,7 +18,12 @@ class LinkListStack{
         top=nullptr;
         size=0;
     }
-    void push(int val)
+    void push(int val){
+        Node *temp=new Node(val);
+        temp->next=top; 
+        top=temp;
+        size++;
+    }
 
         
     };
