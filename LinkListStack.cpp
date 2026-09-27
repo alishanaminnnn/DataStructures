@@ -35,7 +35,28 @@ class LinkListStack{
         delete top;
         }
     }
-    
+    int peak(){
+        if (top==nullptr)
+        {
+            return -1;
+            cout<<"Stack is empty";
+        
+        }
+        else
+        {
+            return top->data;
+        }
+    }
 
         
     };
+
+int main(){
+    LinkListStack l1;
+    l1.push(5);
+    l1.push(6);
+    
+
+
+    return 0;
+}
