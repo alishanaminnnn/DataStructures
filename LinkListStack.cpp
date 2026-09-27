@@ -56,7 +56,6 @@ public:
             return top->data;
         }
     }
-    
     ~LinkListStack()
     {
         while (top)
