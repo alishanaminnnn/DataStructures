@@ -13,7 +13,12 @@ class LinkListStack{
     public:
     Node* top;
     int size;
-    
-        
+    public:
+    LinkListStack(){
+        top=nullptr;
+        size=0;
+    }
+    void push(int val)
+
         
     };
