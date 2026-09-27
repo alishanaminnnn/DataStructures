@@ -65,6 +65,12 @@ public:
             delete temp;
         }
     }
+    bool IsEmpty(){
+        return top==nullptr;
+    }
+    int IsSize(){
+        return size;
+    }
 };
 
 int main()
