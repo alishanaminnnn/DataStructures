@@ -24,6 +24,18 @@ class LinkListStack{
         top=temp;
         size++;
     }
+    void pop(){
+        if (top==nullptr)
+        {
+           cout<<"UnderFlow";
+        }
+        else{
+        Node *temp=top;
+        top=top->next;
+        delete top;
+        }
+    }
+    
 
         
     };
