@@ -1,79 +1,46 @@
-#include <iostream>
+#include<iostream>
 using namespace std;
 
-class Stack
-{
-private:
+
+class ArrayStack{
+    public:
     int *arr;
+    int size;
     int capacity;
-    int top;
 
-public:
-    Stack(int size)
-    {
-        arr = new int[size];
-        capacity = size;
-        top = -1;
+    public:
+    bool isEmpty(){ return (size==0);}
+    bool isFull(){return (size==capacity);}
+    ArrayStack(){
+        capacity=10;
+        arr=new int[capacity];
+        size=0;
     }
-    bool isEmpty()
-    {
-        if (top == -1)
-        {
-            return true;
-        }
-        return false;
+    ArrayStack(int value){
+        capacity=10;
+        arr=new int[capacity];
+        *arr=0;
+        size=1;
     }
-    bool isFull()
-    {
-        if (capacity == top + 1)
-        {
-            return true;
-        }
-        return false;
-    }
-
-    void push(int value)
-    {
+    void push(int value){
         if (isFull())
         {
-            cout << "Stack overFlow";
+            cout<<"The stack is Overflowed";
         }
         else
         {
-            top++;
-            *(arr + top) = value;
+        *(arr+size)=value;
+        size++;
         }
     }
-    int pop(){
-        if (isEmpty())
-        {
-            cout<<"underFlow";
-            return -1;
-        }
-        else
-        {
-            int temp=*(arr+top);
-            top--;
-            return temp;
-        }
-    }
-    int peak(){
-        return *(arr+top);
-    }
-    ~Stack(){
-        delete[] arr;
+    void pop(){
+        
     }
 };
-int main(){
-    Stack s1(5);
-    cout<<"The Stack is Empty: "<<s1.isEmpty()<<endl;
-    s1.push(2);
-    s1.push(3);
-    s1.push(6);
-    cout<<"The top element is: "<<s1.peak()<<endl;
-    cout<<"The popped element is: "<<s1.pop()<<endl;
-    cout<<"The top element is: "<<s1.peak()<<endl;
 
+
+
+int main(){
 
 
     return 0;
