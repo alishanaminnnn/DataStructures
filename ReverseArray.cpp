@@ -48,21 +48,11 @@ class Stack{
 
 
 int main(){
-    int arr[]={2,4,6,7,2,4};
     Stack s1;
-    for (int i = 0; i < 6; i++)
-    {
-        s1.push(*(arr+i));
-    }
-    cout<<"Reversed Array: ";
-    for (int i = 0; i < 6; i++)
-    {
-        cout<<s1.peek()<<" ";
-        s1.pop();
-    }
-    
+
     
     
 
     return 0;
 }
+
