@@ -34,7 +34,28 @@ class ArrayStack{
         }
     }
     void pop(){
+        if (isEmpty)
+        {
+            cout<<"UnderFlow";
+        }
         
+        int popped_Data=*(arr+size-1);
+        size --;
+    }
+    
+    int peek(){
+        if (isEmpty)
+        {
+            cout<<"Nothing to show";
+        }
+        else
+        {
+            return *(arr+size-1);
+        }
+    }
+
+    ~ArrayStack(){
+        delete[] arr;
     }
 };
 
