@@ -62,7 +62,7 @@ class ArrayStack{
 
 
 int main(){
-
+    ArrayStack a1;
 
     return 0;
 }
