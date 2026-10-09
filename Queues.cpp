@@ -4,55 +4,43 @@ using namespace std;
 class Queue{
     private:
     struct Node{
-        int Data;
-        Node * next;
+        int data;
+        Node *next;
         Node(int value){
-            Data=value;
+            data=value;
             next=nullptr;
         }
-    };
-    int size=0;
-    Node *front;
-    Node *rear;
-    bool isEmpty(){return size==0;}
-
+    bool isEmpty(){return size==0}
+    int size;
+    Node* front;
+    Node* rear;
+    //default constructor
     public:
-    Queue(){//default constructor
+    Queue(){
+        size=0;
         front=nullptr;
         rear=nullptr;
     }
-    Queue(int value){//paramatrized constructor
-        Node*temp=new Node(value);
-        front=rear=temp;
+    Queue(int value){
+        front=new Node(value);
+        rear=front;
+        size=1;
     }
     void enqueue(int value){
         Node *temp=new Node(value);
         if(isEmpty()){
-            rear=front=temp;
+            front=temp;
+            rear=temp;
+            size=1;
         }
         else{
-            rear->next=temp;
-        }
+        tail->next=temp;
+        tail=temp;
         size++;
+        }
     }
-    int dequeue(){
-        if(isEmpty()){
-            return -1;
-        }
-        else{
-            int temp;
-            Node* removal;
-            temp=front->Data;
-            removal=front;
-            front=front->next
-        }
+
+
+
     }
 };
-
-
-int main(){
-
-
-
-    return 0;
-}
