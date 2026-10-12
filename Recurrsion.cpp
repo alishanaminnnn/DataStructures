@@ -1,4 +1,4 @@
-// recurrsion practice question form basic to advance
+// recurrsion practice questions form basic to advance
 #include <iostream>
 using namespace std;
 
@@ -23,7 +23,7 @@ void table(int a, int n) {
   cout << 2 << "x" << n << "=" << a * n << endl;
 }
 
-// counts tilll n
+//print all numbers from n to 1
 void counter(int n) {
   if(n==0){
     return;
@@ -41,8 +41,19 @@ int  sumOfn(int n){
   return n+sumOfn(n-1);
 }
 
+//calculate the power of a number.
+int power(int a,int n){
+  if(n==0){
+    return 1;
+  }
+  
+  
+}
+
+
+
 int main() {
-  cout<<sumOfn(2);
+
 
 
   return 0;
