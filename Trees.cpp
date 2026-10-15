@@ -1,25 +1,19 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
 
-class trees{
-    struct Node{
-        int data;
-        Node *left;
-        Node *right;
-        Node(int value){
-            data=value;
-            left=nullptr;
-            right=nullptr;
-        };
-    
-
-    };
-    
+struct Node {
+  int data;
+  Node *left;
+  Node *right;
+  Node(int value) {
+    data = value;
+    left = nullptr;
+    right = nullptr;
+  }
 };
 
-int main(){
+int main() {
+  int x;
 
-
-
-    return 0;
+  return 0;
 }
