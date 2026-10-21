@@ -1,86 +1,48 @@
 #include <iostream>
 using namespace std;
 
-class Node
-{
+class ListStack {
 public:
-    int data;
+  struct Node {
+    char data;
     Node *next;
-
-public:
-    Node(int val) : data(val), next(nullptr) {}
+    Node(char value) {
+      data = value;
+      next = nullptr;
+    }
+  };
+  Node *head;
+  Node *curr;
+  ListStack() { head = curr = nullptr; }
+  bool IsEmpty() { return head == nullptr; }
+  void push(char value) {
+    if (IsEmpty()) {
+      head = new Node(value);
+    } else {
+      Node *temp = new Node(value);
+      temp->next = head;
+      head = temp;
+    }
+  }
+  char pop() {
+    if (IsEmpty()) {
+      return -1;
+    } else {
+      Node *temp = head;
+      char value = temp->data;
+      head = head->next;
+      delete temp;
+      return value;
+    }
+  }
+  char peek() {
+    char value = head->data;
+    return value;
+  }
 };
 
-class LinkListStack
-{
-public:
-    Node *top;
-    int size;
+int main() {
+  ListStack l1;
 
-public:
-    LinkListStack()
-    {
-        top = nullptr;
-        size = 0;
-    }
-    void push(int val)
-    {
-        Node *temp = new Node(val);
-        temp->next = top;
-        top = temp;
-        size++;
-    }
-    void pop()
-    {
-        if (top == nullptr)
-        {
-            cout << "UnderFlow";
-        }
-        else
-        {
-            Node *temp = top;
-            top = top->next;
-            delete temp;
-            size--;
-        }
-    }
-    int peek()
-    {
-        if (top == nullptr)
-        {
-            return -1;
-            cout << "Stack is empty";
-        }
-        else
-        {
-            return top->data;
-        }
-    }
-    ~LinkListStack()
-    {
-        while (top)
-        {
-            Node *temp = top;
-            top = top->next;
-            delete temp;
-        }
-    }
-    bool IsEmpty(){
-        return top==nullptr;
-    }
-    int IsSize(){
-        return size;
-    }
-};
-
-int main()
-{
-    LinkListStack l1;
-    l1.push(5);
-    l1.push(6);
-    cout << l1.peek();
-    l1.pop();
-    cout << l1.peek();
-
-    return 0;
+  return 0;
 }
