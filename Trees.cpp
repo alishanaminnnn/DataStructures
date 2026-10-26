@@ -1,8 +1,8 @@
 #include <iostream>
-#include <queue>
 using namespace std;
 
 class Node {
+public:
   int data;
   Node *left;
   Node *right;
@@ -12,8 +12,42 @@ class Node {
   }
 };
 
-int main() { 
-  
-  
+void preOrder(Node *n) {
+  if (n == nullptr) {
+    return;
+  }
+  cout << n->data << "\t";
+  preOrder(n->left);
+  preOrder(n->right);
+}
+
+void InOrder(Node *n) {
+  if (n == nullptr) {
+    return;
+  }
+  InOrder(n->left);
+  cout << n->data << "\t";
+  InOrder(n->right);
+}
+
+void postOrder(Node *n) {
+  if (n == nullptr) {
+    return;
+  }
+  InOrder(n->left);
+  InOrder(n->right);
+  cout << n->data << "\t";
+}
+
+int main() {
+  Node *root = new Node(12);
+  root->left = new Node(2);
+  root->right = new Node(7);
+  root->left->left = new Node(6);
+  root->left->right = new Node(7);
+  root->right->left = new Node(3);
+  //   preOrder(root);
+  postOrder(root);
+
   return 0;
 }
