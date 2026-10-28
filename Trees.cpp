@@ -39,6 +39,21 @@ void postOrder(Node *n) {
   cout << n->data << "\t";
 }
 
+node *parent(node *curr, node *p, node *par) {
+  if (curr == nullptr) {
+    return nullptr;
+  }
+  if (curr == p) {
+    return par;
+  }
+  node *t = nullptr;
+  t = parent(curr->left, p, curr) if (t != nullptr) { return t; }
+  else {
+    t = parent(curr->right, p, curr);
+    return t;
+  }
+}
+
 int main() {
   Node *root = new Node(12);
   root->left = new Node(2);
@@ -46,8 +61,6 @@ int main() {
   root->left->left = new Node(6);
   root->left->right = new Node(7);
   root->right->left = new Node(3);
-  //   preOrder(root);
-  postOrder(root);
 
   return 0;
 }

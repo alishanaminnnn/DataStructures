@@ -109,7 +109,7 @@ public:
             curr = next;
         }
 
-        head = prev;
+        head = prev;2
     }
 };
 int main()
