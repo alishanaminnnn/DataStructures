@@ -56,7 +56,20 @@ Node *parent(Node *curr, Node *p, Node *par) {
     return t;
   }
 }
- 
+int height(Node *root) {
+  if (root == nullptr) {
+    return 0;
+  }
+
+  int x = height(root->left);
+  int y = height(root->right);
+
+  if (x > y) {
+    return x + 1;
+  } else {
+    return y + 1;
+  }
+}
 
 int main() {
   Node *root = new Node(1);
