@@ -25,17 +25,17 @@ void inOrder(Node *root) {
   if (root == nullptr) {
     return;
   }
-  preOrder(root->left);
+  inOrder(root->left);
   cout << root->data << "  ";
-  preOrder(root->right);
+  inOrder(root->right);
 }
 
 void postOrder(Node *root) {
   if (root == nullptr) {
     return;
   }
-  preOrder(root->left);
-  preOrder(root->right);
+  postOrder(root->left);
+  postOrder(root->right);
   cout << root->data << "  ";
 }
 
@@ -71,17 +71,16 @@ int height(Node *root) {
   }
 }
 
-node* sibling(node* root, node* p)
-{
-    node* par = parent(root, p, nullptr);
+node *sibling(node *root, node *p) {
+  node *par = parent(root, p, nullptr);
 
-    if (par == nullptr)
-        return nullptr;
+  if (par == nullptr)
+    return nullptr;
 
-    if (par->left == p)
-        return par->right;
-    else
-        return par->left;
+  if (par->left == p)
+    return par->right;
+  else
+    return par->left;
 }
 
 int main() {
