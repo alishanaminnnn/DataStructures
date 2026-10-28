@@ -71,6 +71,19 @@ int height(Node *root) {
   }
 }
 
+node* sibling(node* root, node* p)
+{
+    node* par = parent(root, p, nullptr);
+
+    if (par == nullptr)
+        return nullptr;
+
+    if (par->left == p)
+        return par->right;
+    else
+        return par->left;
+}
+
 int main() {
   Node *root = new Node(1);
   root->left = new Node(2);
