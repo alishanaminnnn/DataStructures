@@ -31,13 +31,17 @@ bool searchNode(Node *r, int data) {
   }
 }
 
-void insert(Node *r, int data){
-    if(r==nullptr){
-        return;
-    }
-    if(data> r->data){
-        insert(r->)
-    }
+void insert(Node *r, int data) {
+  if (r == nullptr) {
+    r->data = data;
+    return;
+  }
+  if (data > r->data) {
+    insert(r->right, data);
+  }
+  if (data < r->data) {
+    insert(r->left, data);
+  }
 }
 int main() {
 
