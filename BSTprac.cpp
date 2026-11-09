@@ -31,18 +31,43 @@ bool searchNode(Node *r, int data) {
   }
 }
 
-void insert(Node *r, int data) {
+Node *insert(Node *r, int data) {
   if (r == nullptr) {
-    r->data = data;
-    return;
+    return new Node(data);
   }
   if (data > r->data) {
-    insert(r->right, data);
+    r->right = insert(r->right, data);
   }
   if (data < r->data) {
-    insert(r->left, data);
+    r->left = insert(r->left, data);
   }
+  return r;
 }
+
+bool isBST(Node *r, int min, int max) {
+
+  if (r == nullptr) {
+    return true;
+  }
+
+  if (r->data <= min || r->data >= max) {
+    return false;
+  }
+
+  return isBST(r->left, min, r->data) && isBST(r->right, r->data, max);
+}
+
+int maximum(Node *r) {
+  if (r == nullptr) {
+    return -1;
+  }
+  if (r->right==nullptr) {
+    return r->data;
+  } 
+  return maximum(r->right);
+}
+
+
 int main() {
 
   Node *root = new Node(10);
