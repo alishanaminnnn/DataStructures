@@ -44,29 +44,48 @@ Node *insert(Node *r, int data) {
   return r;
 }
 
-bool isBST(Node *r, int min, int max) {
-
-  if (r == nullptr) {
-    return true;
-  }
-
-  if (r->data <= min || r->data >= max) {
-    return false;
-  }
-
-  return isBST(r->left, min, r->data) && isBST(r->right, r->data, max);
-}
-
 int maximum(Node *r) {
   if (r == nullptr) {
     return -1;
   }
-  if (r->right==nullptr) {
+  if (r->right == nullptr) {
     return r->data;
-  } 
+  }
   return maximum(r->right);
 }
 
+int manimum(Node *r) {
+  if (r == nullptr) {
+    return -1;
+  }
+  if (r->left == nullptr) {
+    return r->data;
+  }
+  return maximum(r->left);
+}
+
+bool isBSt(Node *r, int max, int min) {
+  if (r == nullptr) {
+    return true;
+  }
+
+  if (r->data >= max) {
+    return false;
+  }
+
+  if (r->data <= min) {
+    return false;
+  }
+
+  return isBSt(r->right, max, r->data) && isBSt(r->left, r->data, min);
+}
+
+int minDistance(Node *r){
+  if(r==nullptr){
+    return 0;
+  }
+  x=minDistance()
+}
 
 int main() {
 
