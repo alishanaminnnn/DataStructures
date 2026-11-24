@@ -80,11 +80,17 @@ bool isBSt(Node *r, int max, int min) {
   return isBSt(r->right, max, r->data) && isBSt(r->left, r->data, min);
 }
 
-int minDistance(Node *r){
-  if(r==nullptr){
+int height(Node *r) {
+  if (r == nullptr) {
     return 0;
   }
-  x=minDistance()
+  int x = height(r->right);
+  int y = height(r->left);
+  if (x > y) {
+    return x+1;
+  } else {
+    return y+1;
+  }
 }
 
 int main() {
